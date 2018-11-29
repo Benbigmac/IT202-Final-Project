@@ -9,6 +9,7 @@
   color: white;
   border: 0;
   background-color: #000;
+    visibility:visible;
 }
 #mainNav .navbar-brand {
   color: WHITE;
