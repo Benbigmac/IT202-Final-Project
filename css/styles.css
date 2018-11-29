@@ -11,20 +11,20 @@
   background-color: #000;
 }
 #mainNav .navbar-brand {
-  color: #000;
+  color: WHITE;
 }
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: black;
+  color: WHITE;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   font-size: 90%;
   font-weight: 400;
   padding: 0.75em 0;
   letter-spacing: 1px;
-  color:BLACK;
+  color:WHITE;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #000;
+  color: RED;
 }
 
 @media (min-width: 992px) {
