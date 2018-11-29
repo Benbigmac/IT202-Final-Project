@@ -86,6 +86,7 @@ img::-moz-selection {
     background-color:#212529
 }
 #mainNav .navbar-toggler {
+    visibility: visible;
     font-size:12px;
     right:0;
     padding:13px;
