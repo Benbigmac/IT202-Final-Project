@@ -150,10 +150,10 @@ technology to jewelry is not one I think is a well paved one but I found it and 
             <div id="map"></div>
         </div>
     </section>
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script>
 
-      // This example displays a marker at the center of Australia.
-      // When the user clicks the marker, an info window opens.
+
 
       function initMap() {
         var chicago = {lat: 41.8781, lng: -87.6298};
@@ -162,11 +162,16 @@ technology to jewelry is not one I think is a well paved one but I found it and 
           center: chicago
         });
       }
-         $(document).ready(initMap())
+         $(document).ready(initMap());
         $(document).ready(function(){
             
             $(document).ready(function() {
-
+                 var chicago = {lat: 41.8781, lng: -87.6298};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: chicago
+        });
+   window.mdc.autoInit();
   var webAppUrl = 'https://script.google.com/macros/s/AKfycbx-HK7m1-nFtd7oILF1BochINk1LTD8UGMphgDOA_jUhiQ_PqjB/exec?';
 
   var sheet = "Sheet1";
@@ -230,7 +235,13 @@ technology to jewelry is not one I think is a well paved one but I found it and 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+              
+                                    <div class="mdc-text-field " data-mdc-auto-init="MDCTextField">
+      <input class="mdc-text-field__input" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+      <label for="input" class="mdc-floating-label">Input Label</label>
+      <div class="mdc-line-ripple"></div>
+    </div>
+                                    
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
@@ -294,6 +305,7 @@ technology to jewelry is not one I think is a well paved one but I found it and 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
+
 
 <script>
           //
