@@ -249,7 +249,7 @@ technology to jewelry is not one I think is a well paved one but I found it and 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
-    <script src="js/voice.js"></script>
+
 <script>
           //
           // Define your database
@@ -268,7 +268,7 @@ technology to jewelry is not one I think is a well paved one but I found it and 
               //
               // Display the result
               //
-              alert ("Nicolas has has an email " + contactInfo.email);
+            //  alert ("Nicolas has has an email " + contactInfo.email);
           }).catch(function(error) {
              //
              // Finally don't forget to catch any error
@@ -279,6 +279,34 @@ technology to jewelry is not one I think is a well paved one but I found it and 
           });
          
       </script>
+    <script>
+    //on submit contact form
+    
+         $('#sendMessageButton').click(function contact(){
+             var namen = $('#name').val();
+             var emailAddr= $('#email').val();;
+             var telephone = $('#phone').val();;
+             db.contactInfo.put({name: namen, email: emailAddr,phoneNumber: telephone}).then (function(){
+              //
+              // Then when data is stored, read from it
+              //
+              return db.contactInfo.get(namen);
+          }).then(function (contactInfo) {
+              
+              // Display the result
+              //
+              alert ("Hello "+contactInfo.name+"! You wish to be contact at this email: " + contactInfo.email +" or via this phone number: "+contactInfo.phoneNumber);
+          }).catch(function(error) {
+             //
+             // Finally don't forget to catch any error
+             // that could have happened anywhere in the
+             // code blocks above.
+             //
+             alert ("Ooops: " + error);
+          });
+             
+         });
+    </script>
     <script>
     $('#amy').click(function aboutMe(){
    var utterthis = new SpeechSynthesisUtterance("From information technology to "+
