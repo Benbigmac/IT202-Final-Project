@@ -1,0 +1,28 @@
+{
+  "name": "Eye Candy By Amy",
+  "short_name": "Eye Candy",
+  "start_url": ".",
+  "display": "fullscreen",
+  "background_color": "#fff",
+  "description": "Eye Candy By Amy's Website",
+  "icons": [{
+    "src": "img/AMY.jpg",
+    "type": "image/jpg"
+  }, {
+    "src": "img/car1.jpg",
+   
+    "type": "img/car2.jpg"
+  }, {
+    "src": "img/car3.jpg",
+ 
+    "type": "image/jpg"
+  }, {
+    "src": "img/car4.jpg",
+ 
+    "type": "image/jpg"
+  },{
+    "src": "img/car5.jpg",
+ 
+    "type": "image/jpg"
+  }]
+}

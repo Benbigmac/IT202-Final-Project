@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-
+    <link rel="manifest" href="manifest.webmanifest">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Website for a Jewelery Company">
     <meta name="author" content="Bennett Maciorowski">
-
+    
     <title>Eye Candy By Amy</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -22,7 +22,9 @@
 
     <link href="css/agency.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
+     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23qcXuGK77p1Smzt7qKsJsMF61TMvDaY">
+    </script>
 </head>
 
 <body id="page-top">
@@ -144,32 +146,75 @@ technology to jewelry is not one I think is a well paved one but I found it and 
    
     <!-- Clients -->
     <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-                    </a>
-                </div>
-            </div>
+        <div id="yeet"class="container">
+            <div id="map"></div>
         </div>
     </section>
+    <script>
 
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+
+      function initMap() {
+        var chicago = {lat: 41.8781, lng: -87.6298};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: chicago
+        });
+      }
+         $(document).ready(initMap())
+        $(document).ready(function(){
+            
+            $(document).ready(function() {
+
+  var webAppUrl = 'https://script.google.com/macros/s/AKfycbx-HK7m1-nFtd7oILF1BochINk1LTD8UGMphgDOA_jUhiQ_PqjB/exec?';
+
+  var sheet = "Sheet1";
+
+  var filters = "stuff";
+
+  var url = webAppUrl + "dataset=" + sheet + "&" + filters;
+
+  $.ajax({
+    type: 'GET',
+    url: url,
+    async: false,
+    jsonpCallback: 'callback',
+    //contentType: "application/json",
+    dataType: 'jsonp',
+    success: function(json) {
+      console.log(json.length);
+      console.log(json);
+      $.each(json, function(i, entry) {
+          //test while I see if maps will work
+        $("#yeet").append("<p>" + JSON.stringify(entry) + "</p>");
+          var marker = new google.maps.Marker({
+                         position: {lat: parseFloat(entry.LocationX), lng: parseFloat(entry.LocationY)},
+                         map: map,
+                         title: entry.Event_Name
+                         });
+           
+                   var infowindow = new google.maps.InfoWindow({
+                    content: "<h1>" + entry.Event_Name + "</h1>"+"<br>"+ "<h1>"+ entry.Event_Date+" "+entry.Description+"</h1>"
+                  });
+            marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                  });              
+
+      });
+    },
+    error: function(e) {
+      console.log(e.message);
+    }
+  });
+
+});
+
+            
+        })
+        
+        
+    </script>
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -318,6 +363,7 @@ technology to jewelry is not one I think is a well paved one but I found it and 
  window.speechSynthesis.speak(utterthis); 
 }
 );</script>
+    
 </body>
 
 </html>
