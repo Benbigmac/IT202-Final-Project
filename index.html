@@ -157,7 +157,12 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script></script>
     <script>
-        var chicago = {
+       
+     
+         //  $(document).ready(initMap());
+        $(document).ready(function() {
+            $(document).ready(function() {
+                 var chicago = {
                     lat: 41.8781,
                     lng: -87.6298
                 };
@@ -165,11 +170,6 @@
                     zoom: 11,
                     center: chicago
                 });
-     
-         //  $(document).ready(initMap());
-        $(document).ready(function() {
-            $(document).ready(function() {
-                
                 window.mdc.autoInit();
                 var webAppUrl = 'https://script.google.com/macros/s/AKfycbx-HK7m1-nFtd7oILF1BochINk1LTD8UGMphgDOA_jUhiQ_PqjB/exec?';
                 var sheet = "Sheet1";
@@ -194,7 +194,7 @@
                                     lat: parseFloat(entry.LocationX),
                                     lng: parseFloat(entry.LocationY)
                                 },
-                                map: document.getElementById('map'),
+                                map: map,
                                 title: entry.Event_Name
                             });
                             var infowindow = new google.maps.InfoWindow({
