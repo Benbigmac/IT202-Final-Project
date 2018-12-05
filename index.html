@@ -55,6 +55,9 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/monitorWall.html">random Stock Data</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -185,21 +188,26 @@
                     success: function(json) {
                         console.log(json.length);
                         console.log(json);
+                        
                         $.each(json, function(i, entry) {
                             
                             //test while I see if maps will work
                             $("#yeet").append("<p>" + JSON.stringify(entry) + "</p>");
+                            console.log(parseFloat(entry.LocationX));
+                            console.log(parseFloat(entry.LocationY));
                             var marker = new google.maps.Marker({
                                 position: {
                                     lat: parseFloat(entry.LocationX),
-                                    lng: parseFloat(entry.LocationY)
+                                    lng: parseFloat(entry.locationY)
                                 },
                                 map: map,
                                 title: entry.Event_Name
                             });
+                            console.log(marker);
                             var infowindow = new google.maps.InfoWindow({
                                 content: "<h1>" + entry.Event_Name + "</h1>" + "<br>" + "<h1>" + entry.Event_Date + " " + entry.Description + "</h1>"
                             });
+                            console.log(infowindow);
                             marker.addListener('click', function() {
                                 infowindow.open(map, marker);
                             });

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+<script>
+ $.ajax({
+   
+                    type: 'GET',
+                    url: 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=ALTR&interval=5min&apikey=9W2A38UJ9OXEPGL7',
+                    async: false,
+                    jsonpCallback: 'callback',
+                    //contentType: "application/json",
+                    dataType: 'json',
+                    success: function(json) {
+                        console.log(json.length);
+                        //console.log(json);
+                        //create and display cards here
+                        var d=0;
+                         $.each(json, function(i, entry) {
+                             $.each(entry, function(x,y) {
+                                 console.log(entry);
+                                  console.log(y);
+                                 if(entry["2. Symbol"] && d==0){
+                                     $("body").append("<h1>" +entry["2. Symbol"] + "</h1>");
+                                     d=1;
+                                 }
+                                 if(y["1. open"]){
+                                     $("body").append("<p> Time: "+x+" Stock Value: " +y["1. open"] + "</p>");
+                                 }
+                                 
+                                 
+                             });
+                          
+
+                         });
+                    },
+                    error: function(e) {
+                        console.log(e.message);
+                    }
+                });
+</script>
+</body>
+</html>
