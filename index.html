@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="manifest" href="manifest.webmanifest">
+   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Website for a Jewelery Company">
@@ -22,19 +22,18 @@
 
     <link href="css/agency.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <!-- MAP API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnZp_bQlPRV-1aQKbHRVnU1duocP32zsQ">
-    </script>
+  
+    
   
 </head>
 
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:BLACK;z-index:11;width:100%;">
+    <nav class="navbar navbar-expand-lg navbar fixed-top" id="mainNav" style="background-color:WHITE;z-index:11;width:100%;">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top" style="background-color:WHITE;">
-                <img class="img-fluid navbar-brand" src="img/clearLogo.png" style="padding:0px;">
+                <img class=" navbar-brand" src="img/clearLogo.png" style="padding:0px;">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="visibility: hidden;">
                 Menu
@@ -42,15 +41,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto" style=" list-style-type: none;">
-                    <li class="nav-item">
+               <!--     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#services">Services</a>
                     </li>
-
+                    -->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                    </li>
+                        <a class="nav-link js-scroll-trigger" href="https://www.etsy.com/shop/eyecandybyamy">Shop</a>
+                    </li>                    
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="https://www.etsy.com/shop/eyecandybyamy">Store</a>
+                        <a class="nav-link js-scroll-trigger" href="#about">About Amy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -94,7 +93,7 @@
     </header>
 
     <!-- Services -->
-    <section id="services">
+ <!--   <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -130,7 +129,7 @@
             </div>
         </div>
     </section>
-
+-->
 
     <!-- About -->
     <section id="about">
@@ -154,117 +153,12 @@
             <div id="map"style="height:500px;"></div>
         </div>
     </section>
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script></script>
-    <script>
-       
-     
-         //  $(document).ready(initMap());
-        $(document).ready(function() {
-            $(document).ready(function() {
-                 var chicago = {
-                    lat: 41.8781,
-                    lng: -87.6298
-                };
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 11,
-                    center: chicago
-                });
-                window.mdc.autoInit();
-                var webAppUrl = 'https://script.google.com/macros/s/AKfycbx-HK7m1-nFtd7oILF1BochINk1LTD8UGMphgDOA_jUhiQ_PqjB/exec?';
-                var sheet = "Sheet1";
-                var filters = "stuff";
-                var url = webAppUrl + "dataset=" + sheet + "&" + filters;
-                $.ajax({
-                    type: 'GET',
-                    url: url,
-                    async: false,
-                    jsonpCallback: 'callback',
-                    //contentType: "application/json",
-                    dataType: 'jsonp',
-                    success: function(json) {
-                        console.log(json.length);
-                        console.log(json);
-                        
-                        $.each(json, function(i, entry) {
-                            
-                            //test while I see if maps will work
-                            $("#yeet").append("<p>" + JSON.stringify(entry) + "</p>");
-                            console.log(parseFloat(entry.LocationX));
-                            console.log(parseFloat(entry.LocationY));
-                            var marker = new google.maps.Marker({
-                                position: {
-                                    lat: parseFloat(entry.LocationX),
-                                    lng: parseFloat(entry.locationY)
-                                },
-                                map: map,
-                                title: entry.Event_Name
-                            });
-                            console.log(marker);
-                            var infowindow = new google.maps.InfoWindow({
-                                content: "<h1>" + entry.Event_Name + "</h1>" + "<br>" + "<h1>" + entry.Event_Date + " " + entry.Description + "</h1>"
-                            });
-                            console.log(infowindow);
-                            marker.addListener('click', function() {
-                                infowindow.open(map, marker);
-                            });
-                        });
-                    },
-                    error: function(e) {
-                        console.log(e.message);
-                    }
-                });
-            });
-        })
-    </script>
+   
+   
     <!-- Contact -->
     <section id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-
-                                    <div class="mdc-text-field " data-mdc-auto-init="MDCTextField">
-                                        <input class="mdc-text-field__input" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
-                                        <label for="input" class="mdc-floating-label">Input Label</label>
-                                        <div class="mdc-line-ripple"></div>
-                                    </div>
-
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+           
         </div>
     </section>
 
@@ -299,93 +193,19 @@
 
     <!-- Contact form JavaScript -->
 
-    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
 
 
-    <script>
-        //
-         // Define your database
-         //
-        var db = new Dexie("friend_database");
-        db.version(1).stores({
-            contactInfo: 'name,email,phoneNumber'
-        });
-        db.contactInfo.put({
-            name: "Nicolas",
-            email: "bmacio2@uic.edu",
-            phoneNumber: "16303011972"
-        }).then(function() {
-            //
-            // Then when data is stored, read from it
-            //
-            return db.contactInfo.get('Nicolas');
-        }).then(function(contactInfo) {
-            //
-            // Display the result
-            //
-            //  alert ("Nicolas has has an email " + contactInfo.email);
-        }).
-        catch(function(error) {
-            //
-            // Finally don't forget to catch any error
-            // that could have happened anywhere in the
-            // code blocks above.
-            //
-            alert("Ooops: " + error);
-        });
-    </script>
-    <script>
-        //on submit contact form
-        $('#sendMessageButton').click(function contact() {
-            var namen = $('#name').val();
-            var emailAddr = $('#email').val();
-            var telephone = $('#phone').val();
-            db.contactInfo.put({
-                name: namen,
-                email: emailAddr,
-                phoneNumber: telephone
-            }).then(function() {
-                //
-                // Then when data is stored, read from it
-                
-                return db.contactInfo.get(namen);
-            }).then(function(contactInfo) {
-                // Display the result
-                //
-                alert("Hello " + contactInfo.name + "! You wish to be contact at this email: " + contactInfo.email + " or via this phone number: " + contactInfo.phoneNumber);
-            }).
-            catch(function(error) {
-                //
-                // Finally don't forget to catch any error
-                // that could have happened anywhere in the
-                // code blocks above.
-                //
-                alert("Ooops: " + error);
-            });
-        });
-    </script>
+
     <script>
         $('#amy').click(function aboutMe() {
             var utterthis = new SpeechSynthesisUtterance("From information technology to " + "jewelry The path from information technology to jewelry is not one I think is a well paved one but I found it" + "and don't plan on leaving. I am primarily a self taught jewelry artist and enjoy exploring different jewelry " + "making and gemstone setting techniques. So, you will continue to see my jewelry evolve over time. I save sterling silver" + "scraps from my workbench and recycle the metal by melting it and rolling it out into sheet metal of my desired gauge. " + "The metal is then cut, hammered, filed and otherwise shaped or \"reborn\" into new jewelry components.");
             window.speechSynthesis.speak(utterthis);
         });
     </script>
- <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          }, function(err) {
-            // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-          });
-        });
-      }
-
-</script>
+ 
 
 </body>
 

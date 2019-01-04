@@ -83,7 +83,7 @@ img::-moz-selection {
     background:0 0
 }
 #mainNav {
-    background-color:#212529
+    background-color:WHITE
 }
 #mainNav .navbar-toggler {
     visibility: visible;
@@ -134,7 +134,7 @@ img::-moz-selection {
     #mainNav.navbar-shrink {
         padding-top:0;
         padding-bottom:0;
-        background-color:#212529
+        background-color:WHITE
     }
     #mainNav.navbar-shrink .navbar-brand {
         font-size:1.25em;

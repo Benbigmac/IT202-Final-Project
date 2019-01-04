@@ -1,5 +1,5 @@
 #mainNav {
-  background-color: #000;
+  background-color: WHITE;
 }
 #mainNav .navbar-toggler {
   font-size: 12px;
@@ -8,21 +8,21 @@
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #000;
+  background-color: WHITE;
     visibility:visible;
 }
 #mainNav .navbar-brand {
   color: WHITE;
 }
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: WHITE;
+  color: #337ab7;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   font-size: 90%;
   font-weight: 400;
   padding: 0.75em 0;
   letter-spacing: 1px;
-  color:WHITE;
+  color:#337ab7;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: RED;
@@ -50,7 +50,7 @@
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
-    background-color: #000;
+    background-color:White;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
