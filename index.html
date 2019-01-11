@@ -33,7 +33,7 @@
     <nav class="navbar navbar-expand-lg navbar fixed-top" id="mainNav" style="background-color:WHITE;z-index:11;width:100%;">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top" style="background-color:WHITE;">
-                <img class=" navbar-brand" src="img/clearLogo.png" style="padding:0px;">
+                <img class=" navbar-brand" src="img/clearLogo.png" style="padding:0px;margin-top:10px;">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="visibility: hidden;">
                 Menu
@@ -135,7 +135,8 @@
 -->
 
     <!-- About -->
-    <section id="about">
+    <section id="about" style="border-style: solid;
+  border-width: 4px 0px 0px 0px;">
         <div class="container">
             <center>
                 <h2 class="section-heading text-uppercase" style="font-family: adobe-garamond-pro,serif;color:#337ab7;">About Me</h2>
@@ -153,7 +154,11 @@
     <!-- Clients -->
   
       <!-- Testimonals -->
-    <section id='testimonial'>
+    <section id='testimonial' style="border-style: solid;
+  border-width: 2px 0px 4px 0px;">
+         <center>
+                <h2 class="section-heading text-uppercase" style="font-family: adobe-garamond-pro,serif;color:#337ab7;">Testimonials</h2>
+            </center>
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -227,15 +232,16 @@
    
     <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="container" id="contact">
             <div class="row">
                 <div class="col-md-6">
                     <span class="copyright">Copyright &copy; Eye Candy by Amy 2018</span>
                 </div>
                 <div class="col-md-6">
                     <ul class="list-inline social-buttons">
+                        <li><input type="text" name="mail"><button type="button" class="btn btn-default">Sign Up</button> </li>
                         <li class="list-inline-item">
-                            <a href="#">
+                            <a href="https://www.instagram.com/eyecandybyamy/?hl=en">
                                 <img src="img/instagram.png"/>
                             </a>
                         </li>
@@ -252,8 +258,33 @@
         </div>
     </footer>
 
-
-
+   <div class="modal fade" id="myModal" role="dialog" >
+    <div class="modal-dialog modal-sm" >
+      <div class="modal-content centerer" style="background-color:WHITE;
+                                        border-radius: 100%; max-width: 500px; max-height: 500px;padding 10px;">
+       
+         
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="">Mailing List Sign Up</h4><br/>
+        
+          
+        
+       
+          <div class="modal-body text">
+            <input type="text" name="mail">
+      
+  </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+      </div>
+    </div>
+  </div>
+    
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
     <!-- Contact form JavaScript -->
 
 
