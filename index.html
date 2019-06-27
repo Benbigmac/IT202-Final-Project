@@ -156,8 +156,41 @@
     </section>
 
 
-    <!-- Clients -->
-  
+    <!-- InstagramFeed -->
+   <section id='instagr' style="border-style: solid;
+  border-width: 2px 0px 4px 0px;">
+      <div id="instagram_feed">
+      
+      </div>
+      
+      
+      <script>
+$.ajax({
+    type: "GET", 
+    url: "//api.instagram.com/v1/users/self/media/recent/?access_token=15402754604.0241b45.d34780d754b746468132680c4f120db0",
+    crossDomain: true,
+    success: function(response) {	
+	var count=1;
+	var apper="<div class=\"row instagram_feed_cl\">"
+        console.log(response);
+        $.each(response.data, function(index, obj) {
+		if(count%11==0){
+			apper+="</div><div class=\"row instagram_feed_cl\">";
+		}
+            console.log(obj.images.thumbnail.url);
+              console.log("<img src=" + obj.images.low_resolution.url + "/>");
+            apper+="<a href='" + obj.link + "' target='_blank'><img src=\"" + obj.images.thumbnail.url +"\"/></a>";
+		count+=1;
+        });
+	apper=apper+"</div>";
+	    $('#instagram_feed').append(apper);
+    },
+    dataType: "jsonp" //set to JSONP, is a callback
+});
+ 
+ 
+</script>
+       </section>
       <!-- Testimonals -->
     <section id='testimonial' style="border-style: solid;
   border-width: 2px 0px 4px 0px;">
