@@ -177,7 +177,7 @@ $.ajax({
 	var apper="<div class=\"row instagram_feed_cl\">"
         console.log(response);
         $.each(response.data, function(index, obj) {
-		if(count%11==0){
+		if(count%10==0){
 			apper+="</div><div class=\"row instagram_feed_cl\">";
 		}
             console.log(obj.images.thumbnail.url);
