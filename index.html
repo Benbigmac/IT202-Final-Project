@@ -165,6 +165,7 @@
 	    <center>
                 <h2 class="section-heading text-uppercase" style="font-family: adobe-garamond-pro,serif;color:#337ab7;">Instagram</h2>
             </center>
+	   <br>
       <div id="instagram_feed">
       
       </div>
@@ -177,7 +178,7 @@ $.ajax({
     crossDomain: true,
     success: function(response) {	
 	var count=1;
-	var apper="<div class=\"row instagram_feed_cl\">"
+	var apper=" <center><div class=\"row instagram_feed_cl\">"
         console.log(response);
         $.each(response.data, function(index, obj) {
 		if(count%10==0){
@@ -188,7 +189,7 @@ $.ajax({
             apper+="<a href='" + obj.link + "' target='_blank'><img src=\"" + obj.images.thumbnail.url +"\" style='padding:10px;' /></a>";
 		count+=1;
         });
-	apper=apper+"</div>";
+	apper=apper+"</div> </center>";
 	    $('#instagram_feed').append(apper);
     },
     dataType: "jsonp" //set to JSONP, is a callback
